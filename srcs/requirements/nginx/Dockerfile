@@ -4,7 +4,7 @@ FROM debian:bullseye
 
 # Update the package list for the base image using the "apt-get update" command. 
 # This is to ensure that we have the latest version of packages and their dependencies.
-RUN ap-get update
+RUN apt-get update
 
 # Install the "nginx" and "openssl" packages using the "apt-get install -y" command.
 # The "-y" flag automatically confirms the installation without asking for confirmation.
