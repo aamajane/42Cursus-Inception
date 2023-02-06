@@ -24,11 +24,11 @@ RUN mkdir /etc/nginx/ssl
 # -newkey rsa:2048: generate a new RSA key of 2048 bits
 # -keyout /etc/nginx/ssl/nginx.key: specify the filename for the private key
 # -out /etc/nginx/ssl/nginx.crt: specify the filename for the certificate
-# -subj "/C=FR/ST=Paris/L=Paris/O=42/OU=42/CN=localhost": specify the subject information for the certificate
+# -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane": specify the subject information for the certificate
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-keyout /etc/nginx/ssl/nginx.key \
 	-out /etc/nginx/ssl/nginx.crt \
-	-subj "/C=FR/ST=Paris/L=Paris/O=42/OU=42/CN=localhost"
+	-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane"
 
 # Copy the nginx configuration file from the host file system to "/etc/nginx/conf.d" within the Docker container.
 # The "nginx.conf" file contains configuration instructions for the nginx server.
