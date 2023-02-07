@@ -4,12 +4,11 @@ FROM debian:bullseye
 
 # Update the package list for the base image using the "apt-get update" command. 
 # This is to ensure that we have the latest version of packages and their dependencies.
-RUN apt-get update
-
 # Install the "nginx" and "openssl" packages using the "apt-get install -y" command.
 # The "-y" flag automatically confirms the installation without asking for confirmation.
 # "nginx" is a popular open-source web server, and "openssl" is a widely used toolkit implementing the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols.
-RUN apt-get install -y nginx openssl
+RUN apt-get update && \
+	apt-get install -y nginx openssl
 
 # Create a directory called "ssl" within the "/etc/nginx" directory.
 # This directory will be used to store the SSL certificate and key that we will generate later.
