@@ -30,9 +30,9 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane"
 
 # Copy the nginx configuration file from the host file system to "/etc/nginx/conf.d" within the Docker container.
-# The "nginx.conf" file contains configuration instructions for the nginx server.
+# The "default.conf.conf" file contains configuration instructions for the nginx server.
 # "/etc/nginx/conf.d" is a directory where nginx looks for additional configuration files.
-COPY ./conf/nginx.conf /etc/nginx/conf.d/
+COPY ./conf/default.conf /etc/nginx/conf.d/
 
 # Create a directory called "run/nginx".
 # The "/run/nginx" directory is used by nginx to store runtime data such as PID files, worker process IDs, and connection data.
