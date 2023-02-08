@@ -1,18 +1,11 @@
-FROM debian:bullseye
+FROM debian:bullseye AS nginx
 
-RUN apt-get update && \
-	apt-get install -y nginx openssl
+RUN apt update && apt install -y nginx openssl
 
-RUN mkdir /etc/nginx/ssl
-
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-	-out /etc/nginx/ssl/aamajane.crt \
-	-keyout /etc/nginx/ssl/aamajane.key \
-	-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane"
+RUN openssl req -x509 -days 365 -subj 'CA=aamajane.42.fr' -out /etc/ssl/cert/aamajane.42.fr.crt \
+	-newkey rsa:2048 -nodes -keyout /etc/ssl/private/aamajane.42.fr.key
 
 COPY ./conf/default.conf /etc/nginx/conf.d/
-
-RUN mkdir -p /run/nginx
 
 EXPOSE 443
 
