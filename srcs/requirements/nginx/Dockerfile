@@ -3,8 +3,7 @@ FROM debian:bullseye AS nginx
 RUN apt-get update && \
 	apt-get install -y nginx openssl
 
-RUN openssl req -x509 -days 365 -subj '/CN=aamajane.42.fr' -out /etc/ssl/certs/aamajane.42.fr.crt \
-	-newkey rsa:2048 -nodes -keyout /etc/ssl/private/aamajane.42.fr.key
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/CN=aamajane.42.fr" -keyout /etc/ssl/private/aamajane.42.fr.key -out /etc/ssl/certs/aamajane.42.fr.crt
 
 COPY ./conf/default.conf /etc/nginx/conf.d/
 
@@ -39,11 +38,11 @@ CMD ["nginx", "-g", "daemon off;"]
 # # -newkey rsa:2048: generate a new RSA key of 2048 bits
 # # -keyout /etc/nginx/ssl/nginx.key: specify the filename for the private key
 # # -out /etc/nginx/ssl/nginx.crt: specify the filename for the certificate
-# # -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane": specify the subject information for the certificate
+# # -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane.42.fr": specify the subject information for the certificate
 # RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 # 	-keyout /etc/nginx/ssl/nginx.key \
 # 	-out /etc/nginx/ssl/nginx.crt \
-# 	-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane"
+# 	-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/CN=aamajane.42.fr"
 
 # # Copy the nginx configuration file from the host file system to "/etc/nginx/conf.d" within the Docker container.
 # # The "default.conf.conf" file contains configuration instructions for the nginx server.
