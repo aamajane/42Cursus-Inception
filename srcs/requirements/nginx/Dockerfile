@@ -1,8 +1,9 @@
 FROM debian:bullseye AS nginx
 
-RUN apt update && apt install -y nginx openssl
+RUN apt-get update && \
+	apt-get install -y nginx openssl
 
-RUN openssl req -x509 -days 365 -subj 'CA=aamajane.42.fr' -out /etc/ssl/cert/aamajane.42.fr.crt \
+RUN openssl req -x509 -days 365 -subj '/CN=aamajane.42.fr' -out /etc/ssl/certs/aamajane.42.fr.crt \
 	-newkey rsa:2048 -nodes -keyout /etc/ssl/private/aamajane.42.fr.key
 
 COPY ./conf/default.conf /etc/nginx/conf.d/
