@@ -6,8 +6,8 @@ RUN apt-get update && \
 RUN mkdir /etc/nginx/ssl
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-	-keyout /etc/nginx/ssl/aamajane.key \
 	-out /etc/nginx/ssl/aamajane.crt \
+	-keyout /etc/nginx/ssl/aamajane.key \
 	-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane"
 
 COPY ./conf/default.conf /etc/nginx/conf.d/
