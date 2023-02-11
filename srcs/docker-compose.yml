@@ -4,7 +4,8 @@ services:
   nginx:
     # depends_on:
     #   - wordpress
-    build: ./requirements/nginx/
+    build:
+      context: ./requirements/nginx/
     image: nginx:1.0
     container_name: nginx
     restart: always
@@ -12,3 +13,17 @@ services:
       - 443:443
     volumes:
       - /home/aamajane/simple_docker_nginx_html/public/html:/var/www/
+
+  mariadb:
+    build:
+      context: ./requirements/mariadb/
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
+        DB_ROOT: ${DB_ROOT}
+    image: mariadb:1.0
+    container_name: mariadb
+    restart: always
+    ports:
+      - 3306:3306
