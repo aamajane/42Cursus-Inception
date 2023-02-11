@@ -1,6 +1,7 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get install -y nginx openssl
+RUN apt-get update && \
+	apt-get install -y nginx openssl
 
 RUN openssl req -newkey rsa:2048 \
 				-nodes \
@@ -37,13 +38,13 @@ CMD ["nginx", "-g", "daemon off;"]
 # # Generate an SSL certificate and key using the OpenSSL "req" command and store it in "/etc/nginx/ssl".
 # # The "req" command is used to issue and sign digital certificates. 
 # # The options used in this command are:
-# # -x509: create a self-signed certificate
-# # -nodes: don't encrypt the private key
-# # -days 365: certificate is valid for 365 days
 # # -newkey rsa:2048: generate a new RSA key of 2048 bits
-# # -keyout /etc/nginx/ssl/nginx.key: specify the filename for the private key
+# # -nodes: don't encrypt the private key
+# # -keyout /etc/nginx/ssl/nginx.key: specify the filename for the private key\
+# # -x509: create a self-signed certificate
+# # -days 365: certificate is valid for 365 days
+# # -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/CN=aamajane.42.fr": specify the subject information for the certificate
 # # -out /etc/nginx/ssl/nginx.crt: specify the filename for the certificate
-# # -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/OU=1337/CN=aamajane.42.fr": specify the subject information for the certificate
 # RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 # 	-keyout /etc/nginx/ssl/nginx.key \
 # 	-out /etc/nginx/ssl/nginx.crt \
