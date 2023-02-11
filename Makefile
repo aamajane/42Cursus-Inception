@@ -6,7 +6,7 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/02/11 17:19:32 by aamajane         ###   ########.fr        #
+#    Updated: 2023/02/11 21:27:50 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ clean:
 		docker-compose -f ./srcs/docker-compose.yml down
 
 fclean:	clean
-		docker image prune -f
+		docker image prune -af
 		docker volume prune -f
 		docker network prune -f
 
