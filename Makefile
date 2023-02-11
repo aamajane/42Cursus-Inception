@@ -6,19 +6,20 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/02/03 21:55:17 by aamajane         ###   ########.fr        #
+#    Updated: 2023/02/11 17:19:32 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-		cd srcs && docker-compose up -d --build
+		docker-compose -f ./srcs/docker-compose.yml up -d --build
 
 clean:
-		cd srcs && docker-compose down
+		docker-compose -f ./srcs/docker-compose.yml down
 
 fclean:	clean
-		docker container prune -f
-		docker image prune -af
+		docker image prune -f
+		docker volume prune -f
+		docker network prune -f
 
 re:		fclean all
 
