@@ -2,8 +2,13 @@ FROM debian:bullseye
 
 RUN apt-get update && apt-get install -y nginx openssl
 
-RUN openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/private/aamajane.42.fr.key \
-				-x509 -days 365 -subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/CN=aamajane.42.fr" -out /etc/ssl/certs/aamajane.42.fr.crt
+RUN openssl req -newkey rsa:2048 \
+				-nodes \
+				-keyout /etc/ssl/private/aamajane.42.fr.key \
+				-x509 \
+				-days 365 \
+				-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/CN=aamajane.42.fr" \
+				-out /etc/ssl/certs/aamajane.42.fr.crt
 
 COPY ./conf/default.conf /etc/nginx/conf.d/
 
