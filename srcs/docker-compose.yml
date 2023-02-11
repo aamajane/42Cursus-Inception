@@ -2,10 +2,11 @@ version: '3'
 
 services:
   nginx:
-    build: ./requirements/nginx/
-    container_name: nginx
     # depends_on:
     #   - wordpress
+    build: ./requirements/nginx/
+    image: nginx:1.0
+    container_name: nginx
     ports:
       - 443:443
     volumes:
