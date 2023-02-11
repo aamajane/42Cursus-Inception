@@ -31,10 +31,6 @@ CMD ["nginx", "-g", "daemon off;"]
 # RUN apt-get update && \
 # 	apt-get install -y nginx openssl
 
-# # Create a directory called "ssl" within the "/etc/nginx" directory.
-# # This directory will be used to store the SSL certificate and key that we will generate later.
-# RUN mkdir /etc/nginx/ssl
-
 # # Generate an SSL certificate and key using the OpenSSL "req" command and store it in "/etc/nginx/ssl".
 # # The "req" command is used to issue and sign digital certificates. 
 # # The options used in this command are:
@@ -54,10 +50,6 @@ CMD ["nginx", "-g", "daemon off;"]
 # # The "default.conf.conf" file contains configuration instructions for the nginx server.
 # # "/etc/nginx/conf.d" is a directory where nginx looks for additional configuration files.
 # COPY ./conf/default.conf /etc/nginx/conf.d/
-
-# # Create a directory called "run/nginx".
-# # The "/run/nginx" directory is used by nginx to store runtime data such as PID files, worker process IDs, and connection data.
-# RUN mkdir -p /run/nginx
 
 # # Expose port 443 for HTTPS traffic.
 # # This allows incoming traffic on port 443 to reach the nginx server running within the Docker container.
