@@ -1,7 +1,6 @@
-FROM debian:bullseye
+FROM alpine:3.17
 
-RUN apt-get update && \
-	apt-get install -y nginx openssl
+RUN apk update && apk upgrade && apk add --no-cache nginx openssl
 
 RUN openssl req -newkey rsa:2048 \
 				-nodes \
@@ -11,7 +10,7 @@ RUN openssl req -newkey rsa:2048 \
 				-subj "/C=MA/ST=Marrakech-Safi/L=Ben-Guerir/O=1337/CN=aamajane.42.fr" \
 				-out /etc/ssl/certs/aamajane.42.fr.crt
 
-COPY ./conf/default.conf /etc/nginx/conf.d/
+COPY ./conf/default.conf /etc/nginx/http.d/
 
 EXPOSE 443
 
