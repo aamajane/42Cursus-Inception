@@ -2,17 +2,19 @@ version: '3'
 
 services:
   nginx:
-    # depends_on:
-    #   - wordpress
     build:
       context: ./requirements/nginx/
     image: nginx:1.0
     container_name: nginx
-    restart: always
+    depends_on:
+      - wordpress
     ports:
       - 443:443
+    networks:
+      - inception
     volumes:
-      - /home/aamajane/simple_docker_nginx_html/public/html:/var/www/
+      - wp-volume:/var/www/
+    restart: always
 
   mariadb:
     build:
@@ -24,6 +26,48 @@ services:
         DB_ROOT: ${DB_ROOT}
     image: mariadb:1.0
     container_name: mariadb
-    restart: always
+    env_file:
+      - .env
     ports:
       - 3306:3306
+    networks:
+      - inception
+    volumes:
+      - db-volume:/var/lib/mysql
+    restart: always
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress/
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
+    image: wordpress:1.0
+    container_name: wordpress
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    volumes:
+      - wp-volume:/var/www/
+    restart: always
+
+volumes:
+  wp-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/${USER}/data/wordpress
+
+  db-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/${USER}/data/mariadb
+
+networks:
+    inception:
+        driver: bridge

@@ -6,15 +6,18 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/02/11 23:07:50 by aamajane         ###   ########.fr        #
+#    Updated: 2023/02/14 22:00:31 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
+		bash ./srcs/requirements/wordpress/tools/make_dir.sh
 		docker-compose -f ./srcs/docker-compose.yml up -d --build
 
 clean:
 		docker-compose -f ./srcs/docker-compose.yml down
+		sudo rm -rf ~/data/wordpress/*
+		sudo rm -rf ~/data/mariadb/*
 
 fclean:	clean
 		docker image prune -af
