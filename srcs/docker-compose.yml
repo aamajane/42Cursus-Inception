@@ -2,10 +2,10 @@ version: '3'
 
 services:
   nginx:
-    build:
-      context: ./requirements/nginx/
     image: nginx:1.0
     container_name: nginx
+    build:
+      context: ./requirements/nginx/
     depends_on:
       - wordpress
     ports:
@@ -17,6 +17,8 @@ services:
     restart: always
 
   mariadb:
+    image: mariadb:1.0
+    container_name: mariadb
     build:
       context: ./requirements/mariadb/
       args:
@@ -24,8 +26,6 @@ services:
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
         DB_ROOT: ${DB_ROOT}
-    image: mariadb:1.0
-    container_name: mariadb
     env_file:
       - .env
     ports:
@@ -37,14 +37,14 @@ services:
     restart: always
 
   wordpress:
+    image: wordpress:1.0
+    container_name: wordpress
     build:
       context: ./requirements/wordpress/
       args:
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
-    image: wordpress:1.0
-    container_name: wordpress
     env_file:
       - .env
     depends_on:
