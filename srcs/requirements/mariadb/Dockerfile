@@ -27,4 +27,4 @@ RUN sh create_db.sh && rm create_db.sh
 
 USER mysql
 
-CMD ["/usr/bin/mysqld", "--skip-log-error"]
+CMD ["mysqld", "--skip-log-error"]
