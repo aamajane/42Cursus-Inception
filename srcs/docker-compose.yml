@@ -26,8 +26,6 @@ services:
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
         DB_ROOT: ${DB_ROOT}
-    # env_file:
-    #   - .env
     ports:
       - 3306:3306
     networks:
@@ -45,8 +43,6 @@ services:
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
-    # env_file:
-    #   - .env
     depends_on:
       - mariadb
     networks:
