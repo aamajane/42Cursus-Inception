@@ -6,7 +6,7 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/02/15 21:44:57 by aamajane         ###   ########.fr        #
+#    Updated: 2023/02/16 22:15:48 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ all:
 
 clean:
 		docker-compose -f ./srcs/docker-compose.yml --env-file ./srcs/.env down
-		sudo rm -rf ~/data/wordpress/*
-		sudo rm -rf ~/data/mariadb/*
 
 fclean:	clean
 		docker image prune -af
 		docker volume prune -f
 		docker network prune -f
+		sudo rm -rf ~/data/wordpress/*
+		sudo rm -rf ~/data/mariadb/*
 
 re:		fclean all
 
