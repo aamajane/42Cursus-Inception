@@ -60,6 +60,22 @@ services:
       - inception
     restart: always
 
+  vsftpd:
+    image: vsftpd:1.0
+    container_name: vsftpd
+    build:
+      context: ./requirements/bonus/vsftpd/
+      args:
+        FTP_USER: ${FTP_USER}
+        FTP_PASS: ${FTP_PASS}
+    ports:
+      - "21:21"
+    networks:
+      - inception
+    volumes:
+      - wp-volume:/var/www/
+    restart: always
+
 volumes:
   wp-volume:
     driver_opts:
