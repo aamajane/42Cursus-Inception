@@ -6,7 +6,7 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/02/16 22:32:30 by aamajane         ###   ########.fr        #
+#    Updated: 2023/02/26 22:08:09 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ fclean:	clean
 		docker image prune -af
 		docker volume prune -f
 		docker network prune -f
+		docker volume rm srcs_db-volume srcs_wp-volume
 		sudo rm -rf ~/data/wordpress/*
 		sudo rm -rf ~/data/mariadb/*
 
