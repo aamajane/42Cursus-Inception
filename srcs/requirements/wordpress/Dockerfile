@@ -42,4 +42,4 @@ RUN sh wp-config-create.sh && \
 
 EXPOSE 9000
 
-CMD ["/usr/sbin/php-fpm8", "-F"]
+CMD ["php-fpm8", "-F"]
