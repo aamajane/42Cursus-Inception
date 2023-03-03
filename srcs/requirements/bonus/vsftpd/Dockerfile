@@ -21,6 +21,4 @@ RUN sed -i "s|#chroot_local_user=YES|chroot_local_user=YES|g"  /etc/vsftpd/vsftp
 
 WORKDIR /var/www
 
-EXPOSE 21
-
 CMD [ "vsftpd", "/etc/vsftpd/vsftpd.conf" ]

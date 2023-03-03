@@ -14,6 +14,4 @@ RUN openssl req -newkey rsa:2048 \
 
 COPY ./conf/default.conf /etc/nginx/http.d/
 
-EXPOSE 443
-
 CMD ["nginx", "-g", "daemon off;"]

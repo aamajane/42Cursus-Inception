@@ -25,6 +25,4 @@ RUN sh create_db.sh && \
 
 USER mysql
 
-EXPOSE 3306
-
 CMD ["mysqld", "--skip-log-error"]
