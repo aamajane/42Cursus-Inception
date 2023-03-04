@@ -26,8 +26,6 @@ services:
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
         DB_ROOT: ${DB_ROOT}
-    # ports:
-    #   - "3306:3306"
     networks:
       - inception
     volumes:
@@ -45,8 +43,6 @@ services:
         DB_PASS: ${DB_PASS}
     depends_on:
       - mariadb
-    # ports:
-    #   - "9000:9000"
     networks:
       - inception
     volumes:
