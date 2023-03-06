@@ -1,5 +1,4 @@
 #!bin/sh
-
 mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
 cat << EOF > /etc/mysql/init.sql
