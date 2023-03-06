@@ -16,6 +16,4 @@ RUN mkdir /var/run/mysqld && \
 	sh create_db.sh && \
 	rm create_db.sh
 
-USER mysql
-
-CMD ["mysqld", "--init-file=/etc/mysql/init.sql", "--skip-networking=0"]
+CMD ["mysqld", "--user=mysql", "--init-file=/etc/mysql/init.sql", "--skip-networking=0"]
