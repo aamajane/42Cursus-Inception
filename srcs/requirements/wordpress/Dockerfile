@@ -29,14 +29,13 @@ RUN sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.c
 
 WORKDIR /var/www
 
+COPY ./conf/wp-config-create.sh .
+
 RUN wget https://wordpress.org/latest.zip && \
     unzip latest.zip && \
     cp -rf wordpress/* . && \
-    rm -rf wordpress latest.zip
-
-COPY ./conf/wp-config-create.sh .
-
-RUN sh wp-config-create.sh && \
+    rm -rf wordpress latest.zip && \
+	sh wp-config-create.sh && \
 	rm wp-config-create.sh && \
     chmod -R 0777 wp-content/
 
