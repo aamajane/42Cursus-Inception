@@ -14,6 +14,7 @@ RUN apk update && \
     unzip latest.zip -d /var/www && \
 	rm -rf latest.zip && \
 	sh wp_script.sh && \
-	rm wp_script.sh
+	rm wp_script.sh && \
+	chmod -R 0777 /var/www/wordpress/wp-content
 
 CMD ["php-fpm8", "-F"]

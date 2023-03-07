@@ -49,45 +49,45 @@ services:
       - wp-volume:/var/www/wordpress
     restart: always
 
-  # redis:
-  #   image: redis:1.0
-  #   container_name: redis
-  #   build:
-  #     context: ./requirements/bonus/redis/
-  #   ports:
-  #     - "6379:6379"
-  #   networks:
-  #     - inception
-  #   restart: always
+  redis:
+    image: redis:1.0
+    container_name: redis
+    build:
+      context: ./requirements/bonus/redis/
+    ports:
+      - "6379:6379"
+    networks:
+      - inception
+    restart: always
 
-  # vsftpd:
-  #   image: vsftpd:1.0
-  #   container_name: vsftpd
-  #   build:
-  #     context: ./requirements/bonus/vsftpd/
-  #     args:
-  #       FTP_USER: ${FTP_USER}
-  #       FTP_PASS: ${FTP_PASS}
-  #   ports:
-  #     - "21:21"
-  #   networks:
-  #     - inception
-  #   volumes:
-  #     - wp-volume:/var/www/wordpress
-  #   restart: always
+  vsftpd:
+    image: vsftpd:1.0
+    container_name: vsftpd
+    build:
+      context: ./requirements/bonus/vsftpd/
+      args:
+        FTP_USER: ${FTP_USER}
+        FTP_PASS: ${FTP_PASS}
+    ports:
+      - "21:21"
+    networks:
+      - inception
+    volumes:
+      - wp-volume:/var/www/wordpress
+    restart: always
 
-  # adminer:
-  #   image: adminer:1.0
-  #   container_name: adminer
-  #   build:
-  #     context: ./requirements/bonus/adminer/
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     - inception
-  #   restart: always
+  adminer:
+    image: adminer:1.0
+    container_name: adminer
+    build:
+      context: ./requirements/bonus/adminer/
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    restart: always
 
 volumes:
   wp-volume:
