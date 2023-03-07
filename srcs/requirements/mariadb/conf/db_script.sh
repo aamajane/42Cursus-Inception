@@ -1,6 +1,4 @@
 #!bin/sh
-mysql_install_db --user=mysql --datadir=/var/lib/mysql
-
 cat << EOF > /etc/mysql/init.sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOT}';
 CREATE DATABASE IF NOT EXISTS ${DB_NAME};

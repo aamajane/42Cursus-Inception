@@ -5,14 +5,15 @@ ARG DB_NAME \
     DB_USER \
     DB_PASS
 
-COPY ./conf/create_db.sh .
+COPY ./conf/db_script .
 
 RUN apk update && \
 	apk upgrade && \
 	apk add --no-cache mariadb mariadb-client && \
 	mkdir /var/run/mysqld && \
     chmod 777 /var/run/mysqld && \
-	sh create_db.sh && \
-	rm create_db.sh
+	mysql_install_db --user=mysql --datadir=/var/lib/mysql && \
+	sh db_script && \
+	rm db_script
 
 CMD ["mysqld", "--user=mysql", "--init-file=/etc/mysql/init.sql", "--skip-networking=0"]
