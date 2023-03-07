@@ -5,7 +5,7 @@ ARG DB_NAME \
     DB_USER \
     DB_PASS
 
-COPY ./conf/db_script .
+COPY ./conf/db_script.sh .
 
 RUN apk update && \
 	apk upgrade && \
@@ -13,7 +13,7 @@ RUN apk update && \
 	mkdir /var/run/mysqld && \
     chmod 777 /var/run/mysqld && \
 	mysql_install_db --user=mysql --datadir=/var/lib/mysql && \
-	sh db_script && \
-	rm db_script
+	sh db_script.sh && \
+	rm db_script.sh
 
 CMD ["mysqld", "--user=mysql", "--init-file=/etc/mysql/init.sql", "--skip-networking=0"]

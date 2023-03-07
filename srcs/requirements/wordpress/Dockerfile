@@ -4,7 +4,7 @@ ARG DB_NAME \
     DB_USER \
     DB_PASS
 
-COPY ./conf/wp_script .
+COPY ./conf/wp_script.sh .
 
 RUN apk update && \
 	apk upgrade && \
@@ -13,7 +13,7 @@ RUN apk update && \
 	wget https://wordpress.org/latest.zip && \
     unzip latest.zip -d /var/www && \
 	rm -rf latest.zip && \
-	sh wp_script && \
-	rm wp_script
+	sh wp_script.sh && \
+	rm wp_script.sh
 
 CMD ["php-fpm8", "-F"]
