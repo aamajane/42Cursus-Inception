@@ -13,7 +13,7 @@ services:
     networks:
       - inception
     volumes:
-      - wp-volume:/var/www/
+      - wp-volume:/var/www/wordpress
     restart: always
 
   mariadb:
@@ -46,7 +46,7 @@ services:
     networks:
       - inception
     volumes:
-      - wp-volume:/var/www/
+      - wp-volume:/var/www/wordpress
     restart: always
 
   # redis:
@@ -73,7 +73,7 @@ services:
   #   networks:
   #     - inception
   #   volumes:
-  #     - wp-volume:/var/www/
+  #     - wp-volume:/var/www/wordpress
   #   restart: always
 
   # adminer:

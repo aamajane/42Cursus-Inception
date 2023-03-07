@@ -28,6 +28,6 @@ WORKDIR /var/www
 
 RUN wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php && \
     mv adminer-4.8.1.php index.php && \
-	chown -R root:root /var/www/
+	chown -R root:root /var/www/wordpress
 
 CMD	[ "php", "-S", "[::]:8080", "-t", "/var/www" ]
