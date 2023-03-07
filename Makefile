@@ -6,12 +6,12 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/02/26 22:11:09 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/07 21:30:47 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-		bash ./srcs/requirements/wordpress/tools/make_dir.sh
+		bash ./srcs/requirements/tools/make_dir.sh
 		docker-compose -f ./srcs/docker-compose.yml --env-file ./srcs/.env up -d --build
 
 clean:
