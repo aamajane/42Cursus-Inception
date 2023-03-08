@@ -1,7 +1,7 @@
 FROM alpine:3.16
 
-ARG DB_NAME \
-	DB_ROOT \
+ARG DB_ROOT \
+	DB_NAME \
     DB_USER \
     DB_PASS
 
