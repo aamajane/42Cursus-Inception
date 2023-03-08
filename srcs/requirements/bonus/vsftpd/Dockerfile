@@ -7,7 +7,7 @@ RUN apk update && \
 	apk upgrade && \
     apk add --no-cache vsftpd && \
 	adduser -h /var/www/wordpress -s /bin/false -D ${FTP_USER} && \
-    echo "${FTP_USER}:${FTP_PASS}" | /usr/sbin/chpasswd && \
+    echo "${FTP_USER}:${FTP_PASS}" | chpasswd && \
     adduser ${FTP_USER} root && \
 	sed -i "s|#chroot_local_user=YES|chroot_local_user=YES|g" /etc/vsftpd/vsftpd.conf && \
     sed -i "s|#local_enable=YES|local_enable=YES|g" /etc/vsftpd/vsftpd.conf && \
