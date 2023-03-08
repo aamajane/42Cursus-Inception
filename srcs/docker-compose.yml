@@ -38,11 +38,22 @@ services:
     build:
       context: ./requirements/wordpress/
       args:
+        DOMAIN_NAME: ${DOMAIN_NAME}
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
+        WP_HOST: ${WP_HOST}
+        WP_SITE_TITLE: ${WP_SITE_TITLE}
+        WP_ADMIN_NAME: ${WP_ADMIN_NAME}
+        WP_ADMIN_PASS: ${WP_ADMIN_PASS}
+        WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+        WP_USER_NAME: ${WP_USER_NAME}
+        WP_USER_PASS: ${WP_USER_PASS}
+        WP_USER_EMAIL: ${WP_USER_EMAIL}
+        WP_USER_ROLE: ${WP_USER_ROLE}
     depends_on:
       - mariadb
+      - redis
     networks:
       - inception
     volumes:
@@ -60,14 +71,16 @@ services:
       - inception
     restart: always
 
-  vsftpd:
-    image: vsftpd:1.0
-    container_name: vsftpd
+  ftp:
+    image: ftp:1.0
+    container_name: ftp
     build:
-      context: ./requirements/bonus/vsftpd/
+      context: ./requirements/bonus/ftp/
       args:
         FTP_USER: ${FTP_USER}
         FTP_PASS: ${FTP_PASS}
+    depends_on:
+      - wordpress
     ports:
       - "21:21"
     networks:
