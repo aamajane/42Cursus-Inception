@@ -8,8 +8,7 @@ COPY ./conf/wp_script.sh .
 
 RUN apk update && \
 	apk upgrade && \
-	apk add --no-cache php8 php8-fpm php8-mysqli php8-json php8-curl php8-dom php8-exif \
-	php8-fileinfo php8-mbstring php8-openssl php8-xml php8-zip php8-redis wget unzip && \
+	apk add --no-cache php8 php8-fpm php8-mysqli wget unzip && \
 	wget https://wordpress.org/latest.zip && \
     unzip latest.zip -d /var/www && \
 	rm -rf latest.zip && \
