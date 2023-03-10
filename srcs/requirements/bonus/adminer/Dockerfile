@@ -1,5 +1,7 @@
 FROM alpine:3.16
 
+EXPOSE 8080
+
 WORKDIR /etc/adminer
 
 RUN apk update && \
