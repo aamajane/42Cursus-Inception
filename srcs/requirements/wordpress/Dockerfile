@@ -50,7 +50,7 @@ COPY ./conf/wp_script.sh .
 
 RUN apk update && \
 	apk upgrade && \
-	apk add --no-cache php8 php8-fpm php8-mysqli php-phar wget mariadb-client && \
+	apk add --no-cache php8 php8-fpm php8-mysqli php-phar mariadb-client wget && \
 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && \
 	mv wp-cli.phar /usr/local/bin/wp && \
