@@ -20,10 +20,10 @@
 # 	apk upgrade && \
 # 	apk add --no-cache php8 php8-fpm php8-mysqli php-phar mariadb-client wget unzip && \
 # 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-#     chmod +x wp-cli.phar && \
+#	chmod +x wp-cli.phar && \
 # 	mv wp-cli.phar /usr/local/bin/wp && \
 # 	wget https://wordpress.org/latest.zip && \
-#     unzip latest.zip -d /var/www && \
+#	unzip latest.zip -d /var/www && \
 # 	rm -rf latest.zip
 # RUN sh wp_script.sh && \
 # 	rm wp_script.sh && \
