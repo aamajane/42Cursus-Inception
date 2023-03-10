@@ -25,7 +25,7 @@
 
 
 
-set -xe
+# set -xe
 
 cat << EOF > /etc/php8/php-fpm.d/www.conf
 [wordpress_site]

@@ -22,10 +22,10 @@ services:
     build:
       context: ./requirements/mariadb/
       args:
+        DB_ROOT: ${DB_ROOT}
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
-        DB_ROOT: ${DB_ROOT}
     networks:
       - inception
     volumes:
