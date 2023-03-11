@@ -97,7 +97,6 @@ services:
     build:
       context: ./requirements/bonus/portainer/
     ports:
-      - "8000:8000"
       - "9443:9443"
     networks:
       - inception-network
