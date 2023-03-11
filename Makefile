@@ -6,12 +6,12 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/03/07 21:39:54 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/11 16:49:21 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-		bash ./srcs/requirements/tools/make_dir.sh
+		bash ./srcs/requirements/tools/init_script.sh
 		docker-compose -f ./srcs/docker-compose.yml --env-file ./srcs/.env up -d --build
 
 clean:
