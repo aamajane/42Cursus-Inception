@@ -91,6 +91,15 @@ services:
       - inception-network
     restart: always
 
+  website:
+    image: website:1.0
+    container_name: website
+    build:
+      context: ./requirements/bonus/website/
+    networks:
+      - inception-network
+    restart: always
+
   portainer:
     image: portainer:1.0
     container_name: portainer
