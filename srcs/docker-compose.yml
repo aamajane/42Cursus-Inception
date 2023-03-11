@@ -13,7 +13,7 @@ services:
     networks:
       - inception-network
     volumes:
-      - wp-volume:/var/www/wordpress
+      - wordpress-volume:/var/www/wordpress
     restart: always
 
   mariadb:
@@ -29,7 +29,7 @@ services:
     networks:
       - inception-network
     volumes:
-      - db-volume:/var/lib/mysql
+      - mariadb-volume:/var/lib/mysql
     restart: always
 
   wordpress:
@@ -48,7 +48,7 @@ services:
     networks:
       - inception-network
     volumes:
-      - wp-volume:/var/www/wordpress
+      - wordpress-volume:/var/www/wordpress
     restart: always
 
   redis:
@@ -75,7 +75,7 @@ services:
     networks:
       - inception-network
     volumes:
-      - wp-volume:/var/www/wordpress
+      - wordpress-volume:/var/www/wordpress
     restart: always
 
   adminer:
@@ -92,13 +92,13 @@ services:
     restart: always
 
 volumes:
-  wp-volume:
+  wordpress-volume:
     driver_opts:
       o: bind
       type: none
       device: /home/${USER}/data/wordpress
 
-  db-volume:
+  mariadb-volume:
     driver_opts:
       o: bind
       type: none
