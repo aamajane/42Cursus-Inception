@@ -11,7 +11,7 @@ services:
     ports:
       - "443:443"
     networks:
-      - inception
+      - inception-network
     volumes:
       - wp-volume:/var/www/wordpress
     restart: always
@@ -27,7 +27,7 @@ services:
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
     networks:
-      - inception
+      - inception-network
     volumes:
       - db-volume:/var/lib/mysql
     restart: always
@@ -46,7 +46,7 @@ services:
       - mariadb
       - redis
     networks:
-      - inception
+      - inception-network
     volumes:
       - wp-volume:/var/www/wordpress
     restart: always
@@ -57,7 +57,7 @@ services:
     build:
       context: ./requirements/bonus/redis/
     networks:
-      - inception
+      - inception-network
     restart: always
 
   ftp:
@@ -73,7 +73,7 @@ services:
     ports:
       - "21:21"
     networks:
-      - inception
+      - inception-network
     volumes:
       - wp-volume:/var/www/wordpress
     restart: always
@@ -88,7 +88,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - inception
+      - inception-network
     restart: always
 
 volumes:
@@ -105,5 +105,5 @@ volumes:
       device: /home/${USER}/data/mariadb
 
 networks:
-    inception:
+    inception-network:
         driver: bridge
