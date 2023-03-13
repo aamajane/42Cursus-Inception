@@ -1,1 +1,3 @@
 FROM alpine:3.16
+
+EXPOSE 80
