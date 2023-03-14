@@ -1,61 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>My Website</title>
-	<style>
+    <meta charset="UTF-8">
+    <title>My Resume</title>
+    <style>
 		body {
+			background-color: #f7f7f7;
 			font-family: Arial, sans-serif;
+			margin: 0;
+		}
+
+		header {
+			background-color: #0074d9;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		main {
+			margin: 20px;
+		}
+
+		section {
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			padding: 20px;
+		}
+
+		h2 {
+			color: #0074d9;
+			font-size: 22px;
+			margin-top: 0;
+		}
+
+		ul {
+			list-style: none;
 			margin: 0;
 			padding: 0;
 		}
 
-		header {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-			text-align: center;
+		li {
+			margin-bottom: 5px;
 		}
 
-		nav {
-			background-color: #ccc;
-			padding: 10px;
-			text-align: center;
-		}
-
-		nav a {
-			color: #333;
-			text-decoration: none;
-			padding: 10px;
-		}
-
-		main {
-			padding: 20px;
-		}
-
-		footer {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-			text-align: center;
+		@media only screen and (max-width: 600px) {
+			h2 {
+				font-size: 18px;
+			}
 		}
 	</style>
 </head>
 <body>
-	<header>
-		<h1>Welcome to my website!</h1>
-	</header>
-	<nav>
-		<a href="#">Home</a>
-		<a href="#">About</a>
-		<a href="#">Contact</a>
-	</nav>
-	<main>
-		<h2>About me</h2>
-		<p>Hi, my name is Ayoub and I'm a web developer.</p>
-		<p>I enjoy coding and building websites using HTML, CSS and JavaScript.</p>
-	</main>
-	<footer>
-		<p>&copy; 2023 My Website. All rights reserved.</p>
-	</footer>
+    <header>
+        <h1>My Resume</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Personal Information</h2>
+            <ul>
+                <li><strong>Name:</strong> John Doe</li>
+                <li><strong>Email:</strong> john.doe@example.com</li>
+                <li><strong>Phone:</strong> 123-456-7890</li>
+                <li><strong>Location:</strong> Anytown, USA</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Degree:</strong> Bachelor of Science in Computer Science</li>
+                <li><strong>Institution:</strong> XYZ University</li>
+                <li><strong>Graduation Date:</strong> May 2021</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Experience</h2>
+            <ul>
+                <li><strong>Company:</strong> ABC Corporation</li>
+                <li><strong>Job Title:</strong> Web Developer</li>
+                <li><strong>Duration:</strong> June 2021 - Present</li>
+                <li><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus mauris nec arcu efficitur, sit amet posuere nibh tempor.</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
