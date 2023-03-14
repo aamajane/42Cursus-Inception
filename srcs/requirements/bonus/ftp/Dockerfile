@@ -15,8 +15,8 @@ RUN apk update && \
     echo "local_enable=YES" >> /etc/vsftpd/vsftpd.conf && \
     echo "write_enable=YES" >> /etc/vsftpd/vsftpd.conf && \
     echo "local_umask=007" >> /etc/vsftpd/vsftpd.conf && \
-	echo 'allow_writeable_chroot=YES' >> /etc/vsftpd/vsftpd.conf && \
-    echo 'seccomp_sandbox=NO' >> /etc/vsftpd/vsftpd.conf && \
-    echo 'pasv_enable=YES' >> /etc/vsftpd/vsftpd.conf
+	echo "allow_writeable_chroot=YES" >> /etc/vsftpd/vsftpd.conf && \
+    echo "seccomp_sandbox=NO" >> /etc/vsftpd/vsftpd.conf && \
+    echo "pasv_enable=YES" >> /etc/vsftpd/vsftpd.conf
 
 CMD [ "vsftpd", "/etc/vsftpd/vsftpd.conf" ]
