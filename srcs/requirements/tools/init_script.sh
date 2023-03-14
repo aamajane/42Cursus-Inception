@@ -5,7 +5,7 @@ mkdir -p ${HOME}/data \
 		${HOME}/data/portainer \
 		${HOME}/data/website
 
-cp ./srcs/requirements/bonus/website/* ${HOME}/data/website/
+cp ./srcs/requirements/bonus/website/index.html ${HOME}/data/website/
 
 if ! grep -q "aamajane.42.fr" /etc/hosts; then
 	echo "127.0.0.1       aamajane.42.fr" >> /etc/hosts;
