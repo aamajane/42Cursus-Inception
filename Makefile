@@ -6,7 +6,7 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/03/14 21:02:26 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/14 23:08:06 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,6 @@ fclean: clean
 		docker image prune -af
 		sudo rm -rf ~/data
 
-re:		clean all
+re:		fclean all
 
 .PHONY:	all clean fclean re
