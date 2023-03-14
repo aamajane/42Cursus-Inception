@@ -10,12 +10,10 @@ services:
       - wordpress
     ports:
       - "443:443"
-      - "80:80"
     networks:
       - inception-network
     volumes:
       - wordpress-volume:/var/www/wordpress
-      - website-volume:/var/www/html
     restart: always
 
   mariadb:
@@ -93,6 +91,17 @@ services:
       - inception-network
     restart: always
 
+  website:
+    image: website:1.0
+    container_name: website
+    build:
+      context: ./requirements/bonus/website/
+    ports:
+      - "80:80"
+    networks:
+      - inception-network
+    restart: always
+
   portainer:
     image: portainer:1.0
     container_name: portainer
@@ -125,12 +134,6 @@ volumes:
       o: bind
       type: none
       device: ${HOME}/data/portainer
-
-  website-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: ${HOME}/data/website
 
 networks:
     inception-network:
