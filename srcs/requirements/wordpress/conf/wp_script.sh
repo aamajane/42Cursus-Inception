@@ -63,8 +63,6 @@ wp user create --path=/var/www/wordpress \
 
 ################################################################################
 
-#!/bin/bash
-
 # cat << EOF > /etc/php/7.3/fpm/pool.d/www.conf
 # [www]
 # user = www-data
@@ -100,6 +98,3 @@ wp user create --path=/var/www/wordpress \
 #     wp config set WP_REDIS_PORT 6379 --allow-root;
 #     wp plugin install query-monitor --activate --allow-root;
 # fi
-
-# echo "Starting "$@
-# exec "$@"
