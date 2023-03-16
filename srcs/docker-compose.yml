@@ -13,11 +13,11 @@ volumes:
       type: none
       device: ${HOME}/data/wordpress
 
-  portainer-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: ${HOME}/data/portainer
+  # portainer-volume:
+  #   driver_opts:
+  #     o: bind
+  #     type: none
+  #     device: ${HOME}/data/portainer
 
 networks:
     inception-network:
