@@ -65,6 +65,15 @@ services:
         DB_USER: ${DB_USER}
         DB_PASS: ${DB_PASS}
         DB_HOST: ${DB_HOST}
+        DOMAIN_NAME: ${DOMAIN_NAME}
+        WP_SITE_TITLE: ${WP_SITE_TITLE}
+        WP_ADMIN_NAME: ${WP_ADMIN_NAME}
+        WP_ADMIN_PASS: ${WP_ADMIN_PASS}
+        WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+        WP_USER_NAME: ${WP_USER_NAME}
+        WP_USER_PASS: ${WP_USER_PASS}
+        WP_USER_EMAIL: ${WP_USER_EMAIL}
+        WP_USER_ROLE: ${WP_USER_ROLE}
     depends_on:
       - mariadb
       # - redis
