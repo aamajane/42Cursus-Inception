@@ -3,10 +3,10 @@
 
 # cat << EOF > /var/www/wordpress/wp-config.php
 # <?php
-# define( 'DB_NAME', '${DB_NAME}' );
-# define( 'DB_USER', '${DB_USER}' );
-# define( 'DB_PASSWORD', '${DB_PASS}' );
-# define( 'DB_HOST', '${DB_HOST}' );
+# define( 'DB_NAME', '$DB_NAME' );
+# define( 'DB_USER', '$DB_USER' );
+# define( 'DB_PASSWORD', '$DB_PASS' );
+# define( 'DB_HOST', '$DB_HOST' );
 # define( 'DB_CHARSET', 'utf8' );
 # define( 'DB_COLLATE', '' );
 # define('FS_METHOD','direct');
@@ -24,36 +24,28 @@
 
 ################################################################################
 
-cat << EOF > /etc/php8/php-fpm.d/www.conf
-[www]
-listen = 9000
-pm = dynamic
-pm.max_children = 5
-pm.start_servers = 2
-pm.min_spare_servers = 1
-pm.max_spare_servers = 3
-EOF
+sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 
 wp config create --path=/var/www/wordpress \
-    --dbname=${DB_NAME} \
-	--dbuser=${DB_USER} \
-	--dbpass=${DB_PASS} \
-	--dbhost=${WP_HOST} \
+    --dbname=$DB_NAME \
+	--dbuser=$DB_USER \
+	--dbpass=$DB_PASS \
+	--dbhost=$DB_HOST \
 	--skip-check \
 	--force
 
 wp core install --path=/var/www/wordpress \
-	--url=${DOMAIN_NAME} \
-	--title=${WP_SITE_TITLE} \
-	--admin_user=${WP_ADMIN_NAME} \
-	--admin_password=${WP_ADMIN_PASS} \
-	--admin_email=${WP_ADMIN_EMAIL} \
+	--url=$DOMAIN_NAME \
+	--title=$WP_SITE_TITLE \
+	--admin_user=$WP_ADMIN_NAME \
+	--admin_password=$WP_ADMIN_PASS \
+	--admin_email=$WP_ADMIN_EMAIL \
 	--skip-email
 
 wp user create --path=/var/www/wordpress \
-    ${WP_USER_NAME} ${WP_USER_EMAIL} \
-	--user_pass=${WP_USER_PASS} \
-	--role=${WP_USER_ROLE}
+    $WP_USER_NAME $WP_USER_EMAIL \
+	--user_pass=$WP_USER_PASS \
+	--role=$WP_USER_ROLE
 
 # wp plugin install redis-cache --path=/var/www/wordpress
 
@@ -81,7 +73,7 @@ wp user create --path=/var/www/wordpress \
 #     mv wp-cli.phar /usr/local/bin/wp;
 #     service mysql start;
 #     wp core --allow-root download;
-#     wp core config --allow-root --dbhost=${WP_HOST} --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASS};
+#     wp core config --allow-root --dbhost=${DB_HOST} --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASS};
 #     wp core install --allow-root --url=${DOMAIN_NAME} --title=${WP_SITE_TITLE} --admin_user=${WP_ADMIN_NAME} --admin_password=${WP_ADMIN_PASS} --admin_email=${WP_ADMIN_EMAIL};
 #     wp user create --allow-root ${WP_USER_NAME} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASS};
 #     chmod -R 777 /var/www/wordpress;

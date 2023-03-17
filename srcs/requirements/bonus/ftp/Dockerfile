@@ -8,9 +8,9 @@ EXPOSE 21
 RUN apk update && \
 	apk upgrade && \
     apk add --no-cache vsftpd && \
-	adduser -h /var/www/wordpress -s /bin/false -D ${FTP_USER} && \
-    echo "${FTP_USER}:${FTP_PASS}" | chpasswd && \
-    adduser ${FTP_USER} root && \
+	adduser -h /var/www/wordpress -s /bin/false -D $FTP_USER && \
+    echo "$FTP_USER:$FTP_PASS" | chpasswd && \
+    adduser $FTP_USER root && \
 	echo "chroot_local_user=YES" >> /etc/vsftpd/vsftpd.conf && \
     echo "local_enable=YES" >> /etc/vsftpd/vsftpd.conf && \
     echo "write_enable=YES" >> /etc/vsftpd/vsftpd.conf && \

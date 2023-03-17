@@ -5,19 +5,19 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: ${HOME}/data/mariadb
+      device: $HOME/data/mariadb
 
   wordpress-volume:
     driver_opts:
       o: bind
       type: none
-      device: ${HOME}/data/wordpress
+      device: $HOME/data/wordpress
 
   # portainer-volume:
   #   driver_opts:
   #     o: bind
   #     type: none
-  #     device: ${HOME}/data/portainer
+  #     device: $HOME/data/portainer
 
 networks:
     inception-network:
@@ -45,10 +45,10 @@ services:
     build:
       context: ./requirements/mariadb/
       args:
-        DB_ROOT: ${DB_ROOT}
-        DB_NAME: ${DB_NAME}
-        DB_USER: ${DB_USER}
-        DB_PASS: ${DB_PASS}
+        DB_ROOT: $DB_ROOT
+        DB_NAME: $DB_NAME
+        DB_USER: $DB_USER
+        DB_PASS: $DB_PASS
     networks:
       - inception-network
     volumes:
@@ -61,19 +61,19 @@ services:
     build:
       context: ./requirements/wordpress/
       args:
-        DB_NAME: ${DB_NAME}
-        DB_USER: ${DB_USER}
-        DB_PASS: ${DB_PASS}
-        DB_HOST: ${DB_HOST}
-        DOMAIN_NAME: ${DOMAIN_NAME}
-        WP_SITE_TITLE: ${WP_SITE_TITLE}
-        WP_ADMIN_NAME: ${WP_ADMIN_NAME}
-        WP_ADMIN_PASS: ${WP_ADMIN_PASS}
-        WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
-        WP_USER_NAME: ${WP_USER_NAME}
-        WP_USER_PASS: ${WP_USER_PASS}
-        WP_USER_EMAIL: ${WP_USER_EMAIL}
-        WP_USER_ROLE: ${WP_USER_ROLE}
+        DB_NAME: $DB_NAME
+        DB_USER: $DB_USER
+        DB_PASS: $DB_PASS
+        DB_HOST: $DB_HOST
+        DOMAIN_NAME: $DOMAIN_NAME
+        WP_SITE_TITLE: $WP_SITE_TITLE
+        WP_ADMIN_NAME: $WP_ADMIN_NAME
+        WP_ADMIN_PASS: $WP_ADMIN_PASS
+        WP_ADMIN_EMAIL: $WP_ADMIN_EMAIL
+        WP_USER_NAME: $WP_USER_NAME
+        WP_USER_PASS: $WP_USER_PASS
+        WP_USER_EMAIL: $WP_USER_EMAIL
+        WP_USER_ROLE: $WP_USER_ROLE
     depends_on:
       - mariadb
       # - redis
@@ -98,8 +98,8 @@ services:
   #   build:
   #     context: ./requirements/bonus/ftp/
   #     args:
-  #       FTP_USER: ${FTP_USER}
-  #       FTP_PASS: ${FTP_PASS}
+  #       FTP_USER: $FTP_USER
+  #       FTP_PASS: $FTP_PASS
   #   depends_on:
   #     - wordpress
   #   ports:
