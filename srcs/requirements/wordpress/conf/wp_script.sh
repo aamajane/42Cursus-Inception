@@ -45,7 +45,7 @@ wp core install --path=/var/www/wordpress \
 wp user create --path=/var/www/wordpress \
     $WP_USER_NAME $WP_USER_EMAIL \
 	--user_pass=$WP_USER_PASS \
-	--role=$WP_USER_ROLE
+	--role=author
 
 # wp plugin install redis-cache --path=/var/www/wordpress
 

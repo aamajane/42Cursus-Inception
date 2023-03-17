@@ -73,7 +73,6 @@ services:
         WP_USER_NAME: $WP_USER_NAME
         WP_USER_PASS: $WP_USER_PASS
         WP_USER_EMAIL: $WP_USER_EMAIL
-        WP_USER_ROLE: $WP_USER_ROLE
     depends_on:
       - mariadb
       # - redis
