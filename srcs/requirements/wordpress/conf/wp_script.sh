@@ -47,8 +47,8 @@ wp user create --path=/var/www/wordpress \
 	--user_pass=$WP_USER_PASS \
 	--role=$WP_USER_ROLE
 
-wp plugin install redis-cache --path=/var/www/wordpress
+# wp plugin install redis-cache --path=/var/www/wordpress
 
-wp plugin activate redis-cache --path=/var/www/wordpress
+# wp plugin activate redis-cache --path=/var/www/wordpress
 
-wp redis enable --path=/var/www/wordpress
+# wp redis enable --path=/var/www/wordpress
