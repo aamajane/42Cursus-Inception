@@ -1,0 +1,21 @@
+server {
+	listen 443 ssl;
+
+	server_name aamajane.42.fr;
+
+	ssl_protocols TLSv1.3;
+	ssl_certificate /etc/ssl/certs/aamajane.42.fr.crt;
+	ssl_certificate_key /etc/ssl/private/aamajane.42.fr.key;
+
+	root /var/www/wordpress;
+	index index.php;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ \.php$ {
+       include /etc/nginx/fastcgi.conf;
+       fastcgi_pass wordpress:9000;
+   }
+}
