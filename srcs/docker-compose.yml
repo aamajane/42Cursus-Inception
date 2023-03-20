@@ -30,7 +30,7 @@ services:
   wordpress:
     depends_on:
       - mariadb
-      # - redis
+      - redis
     image: wordpress:1.0
     container_name: wordpress
     build: ./requirements/wordpress/
