@@ -1,4 +1,4 @@
-mkdir /var/run/mysqld
+mkdir -p /var/run/mysqld
 
 chmod 777 /var/run/mysqld
 
