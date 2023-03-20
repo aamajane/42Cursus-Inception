@@ -18,9 +18,9 @@ else
 	wp user create $WP_USER_NAME $WP_USER_EMAIL \
 					--user_pass=$WP_USER_PASS \
 					--role=author
-	# wp plugin install redis-cache
-	# wp plugin activate redis-cache
-	# wp redis enable
+	wp plugin install redis-cache
+	wp plugin activate redis-cache
+	wp redis enable
 fi
 
 php-fpm8 -F
