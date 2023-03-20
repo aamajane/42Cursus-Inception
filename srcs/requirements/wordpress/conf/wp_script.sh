@@ -4,11 +4,6 @@ if [ -f "/var/www/wordpress/wp-config.php" ]
 then
 	echo "Wordpress is already installed"
 else
-	sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
-	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-	chmod +x wp-cli.phar
-	mv wp-cli.phar /usr/local/bin/wp
-	wp core download
 	wp config create --dbname=$DB_NAME \
 					--dbuser=$DB_USER \
 					--dbpass=$DB_PASS \
