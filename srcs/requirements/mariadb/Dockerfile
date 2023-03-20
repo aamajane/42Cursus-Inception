@@ -5,8 +5,6 @@ ARG DB_ROOT \
     DB_USER \
     DB_PASS
 
-EXPOSE 3306
-
 COPY ./conf/db_script.sh .
 
 RUN apk update && \

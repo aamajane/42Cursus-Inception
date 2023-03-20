@@ -3,8 +3,6 @@ FROM alpine:3.16
 ARG FTP_USER \
     FTP_PASS
 
-EXPOSE 21
-
 RUN apk update && \
 	apk upgrade && \
     apk add --no-cache vsftpd && \
