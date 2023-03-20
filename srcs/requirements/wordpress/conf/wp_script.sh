@@ -1,8 +1,8 @@
 sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 
-wp core download --allow-root
+wp core download
 
-wp config create --allow-root \
+wp config create \
 	--dbname=wordpress \
 	--dbuser=wpuser \
 	--dbpass=wppass \
@@ -10,7 +10,7 @@ wp config create --allow-root \
 	--skip-check \
 	--force
 
-wp core install --allow-root \
+wp core install \
 	--url=aamajane.42.fr \
 	--title=inception \
 	--admin_user=wpsuperuser \
@@ -18,7 +18,7 @@ wp core install --allow-root \
 	--admin_email=wpsuperuser@42.fr \
 	--skip-email
 
-wp user create --allow-root \
+wp user create \
 	wpregularuser wpregularuser@42.fr \
 	--user_pass=wpregularpass \
 	--role=author
