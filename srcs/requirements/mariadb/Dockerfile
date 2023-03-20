@@ -6,4 +6,4 @@ RUN apk update && \
 
 COPY ./conf/db_script.sh .
 
-CMD ["sh", "db_script.sh"]
+CMD [ "sh", "db_script.sh" ]

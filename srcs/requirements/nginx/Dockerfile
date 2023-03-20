@@ -8,4 +8,4 @@ RUN apk update && \
 
 COPY ./conf/default.conf /etc/nginx/http.d
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "nginx", "-g", "daemon off;" ]

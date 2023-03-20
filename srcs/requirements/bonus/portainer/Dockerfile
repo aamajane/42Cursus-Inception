@@ -9,4 +9,4 @@ RUN apk update && \
 
 WORKDIR /portainer
 
-CMD ["./portainer"]
+CMD [ "./portainer" ]

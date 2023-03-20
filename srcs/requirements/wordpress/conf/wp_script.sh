@@ -1,5 +1,11 @@
-sleep 5
+sleep 3
 
+if [ -f "/var/www/wordpress/wp-config.php" ]
+then
+
+echo "Wordpress is already installed"
+
+else
 sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -33,5 +39,7 @@ wp user create $WP_USER_NAME $WP_USER_EMAIL \
 # wp plugin activate redis-cache
 
 # wp redis enable
+
+fi
 
 php-fpm8 -F

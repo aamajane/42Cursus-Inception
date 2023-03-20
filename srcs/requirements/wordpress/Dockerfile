@@ -8,4 +8,4 @@ WORKDIR /var/www/wordpress
 
 COPY ./conf/wp_script.sh .
 
-CMD ["sh", "wp_script.sh"]
+CMD [ "sh", "wp_script.sh" ]
