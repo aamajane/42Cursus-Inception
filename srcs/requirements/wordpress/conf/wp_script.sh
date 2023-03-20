@@ -10,22 +10,22 @@ mv wp-cli.phar /usr/local/bin/wp
 
 wp core download
 
-wp config create --dbname=wordpress \
-				--dbuser=wpuser \
-				--dbpass=wppass \
-				--dbhost=mariadb \
+wp config create --dbname=$DB_NAME \
+				--dbuser=$DB_USER \
+				--dbpass=$DB_PASS \
+				--dbhost=$DB_HOST \
 				--skip-check \
 				--force
 
-wp core install --url=aamajane.42.fr \
-				--title=inception \
-				--admin_user=wpsuperuser \
-				--admin_password=wpsuperpass \
-				--admin_email=wpsuperuser@42.fr \
+wp core install --url=$DOMAIN_NAME \
+				--title=$WP_SITE_TITLE \
+				--admin_user=$WP_ADMIN_NAME \
+				--admin_password=$WP_ADMIN_PASS \
+				--admin_email=$WP_ADMIN_EMAIL \
 				--skip-email
 
-wp user create wpregularuser wpregularuser@42.fr \
-				--user_pass=wpregularpass \
+wp user create $WP_USER_NAME $WP_USER_EMAIL \
+				--user_pass=$WP_USER_PASS \
 				--role=author
 
 # wp plugin install redis-cache
