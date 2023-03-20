@@ -6,16 +6,16 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/03/18 21:53:30 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/20 00:40:49 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
 		bash ./srcs/requirements/tools/init_script.sh
-		docker-compose -f ./srcs/docker-compose.yml --env-file ./srcs/.env up --build
+		docker-compose -f ./srcs/docker-compose.yml up --build
 
 clean:
-		docker-compose -f ./srcs/docker-compose.yml --env-file ./srcs/.env down --volumes
+		docker-compose -f ./srcs/docker-compose.yml down --volumes
 
 fclean: clean
 		docker container prune -f

@@ -25,12 +25,11 @@ networks:
 
 services:
   nginx:
-    image: nginx:1.0
-    container_name: nginx
-    build:
-      context: ./requirements/nginx/
     depends_on:
       - wordpress
+    image: nginx:1.0
+    container_name: nginx
+    build: ./requirements/nginx/
     ports:
       - "443:443"
     networks:
@@ -42,13 +41,9 @@ services:
   mariadb:
     image: mariadb:1.0
     container_name: mariadb
-    build:
-      context: ./requirements/mariadb/
-      args:
-        DB_ROOT: $DB_ROOT
-        DB_NAME: $DB_NAME
-        DB_USER: $DB_USER
-        DB_PASS: $DB_PASS
+    build: ./requirements/mariadb/
+    env_file:
+      - .env
     networks:
       - inception-network
     volumes:
@@ -56,93 +51,75 @@ services:
     restart: always
 
   wordpress:
-    image: wordpress:1.0
-    container_name: wordpress
-    build:
-      context: ./requirements/wordpress/
-      args:
-        DB_NAME: $DB_NAME
-        DB_USER: $DB_USER
-        DB_PASS: $DB_PASS
-        DB_HOST: $DB_HOST
-        DOMAIN_NAME: $DOMAIN_NAME
-        WP_SITE_TITLE: $WP_SITE_TITLE
-        WP_ADMIN_NAME: $WP_ADMIN_NAME
-        WP_ADMIN_PASS: $WP_ADMIN_PASS
-        WP_ADMIN_EMAIL: $WP_ADMIN_EMAIL
-        WP_USER_NAME: $WP_USER_NAME
-        WP_USER_PASS: $WP_USER_PASS
-        WP_USER_EMAIL: $WP_USER_EMAIL
     depends_on:
       - mariadb
-      # - redis
+      - redis
+    image: wordpress:1.0
+    container_name: wordpress
+    build: ./requirements/wordpress/
+    env_file:
+      - .env
     networks:
       - inception-network
     volumes:
       - wordpress-volume:/var/www/wordpress
     restart: always
 
-  # redis:
-  #   image: redis:1.0
-  #   container_name: redis
-  #   build:
-  #     context: ./requirements/bonus/redis/
-  #   networks:
-  #     - inception-network
-  #   restart: always
+  redis:
+    image: redis:1.0
+    container_name: redis
+    build: ./requirements/bonus/redis/
+    networks:
+      - inception-network
+    restart: always
 
-  # ftp:
-  #   image: ftp:1.0
-  #   container_name: ftp
-  #   build:
-  #     context: ./requirements/bonus/ftp/
-  #     args:
-  #       FTP_USER: $FTP_USER
-  #       FTP_PASS: $FTP_PASS
-  #   depends_on:
-  #     - wordpress
-  #   ports:
-  #     - "21:21"
-  #   networks:
-  #     - inception-network
-  #   volumes:
-  #     - wordpress-volume:/var/www/wordpress
-  #   restart: always
+  ftp:
+    depends_on:
+      - wordpress
+    image: ftp:1.0
+    container_name: ftp
+    build: ./requirements/bonus/ftp/
+    env_file:
+      - .env
+    ports:
+      - "21:21"
+    networks:
+      - inception-network
+    volumes:
+      - wordpress-volume:/var/www/wordpress
+    restart: always
 
-  # adminer:
-  #   image: adminer:1.0
-  #   container_name: adminer
-  #   build:
-  #     context: ./requirements/bonus/adminer/
-  #   depends_on:
-  #     - mariadb
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     - inception-network
-  #   restart: always
+  adminer:
+    depends_on:
+      - mariadb
+    image: adminer:1.0
+    container_name: adminer
+    build: ./requirements/bonus/adminer/
+    ports:
+      - "8080:8080"
+    networks:
+      - inception-network
+    restart: always
 
-  # website:
-  #   image: website:1.0
-  #   container_name: website
-  #   build:
-  #     context: ./requirements/bonus/website/
-  #   ports:
-  #     - "80:80"
-  #   networks:
-  #     - inception-network
-  #   restart: always
+  website:
+    image: website:1.0
+    container_name: website
+    build: ./requirements/bonus/website/
+    ports:
+      - "80:80"
+    networks:
+      - inception-network
+    restart: always
 
-  # portainer:
-  #   image: portainer:1.0
-  #   container_name: portainer
-  #   build:
-  #     context: ./requirements/bonus/portainer/
-  #   ports:
-  #     - "9443:9443"
-  #   networks:
-  #     - inception-network
-  #   volumes:
-  #     - portainer-volume:/data
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   restart: always
+  portainer:
+    image: portainer:1.0
+    container_name: portainer
+    build: ./requirements/bonus/portainer/
+    ports:
+      - "9443:9443"
+    networks:
+      - inception-network
+    volumes:
+      - portainer-volume:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
