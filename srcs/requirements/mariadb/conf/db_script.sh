@@ -2,7 +2,6 @@ if [ -d "/var/lib/mysql/$DB_NAME" ]
 then
 	echo "Database is already installed"
 else
-	sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 	cat << EOF > /etc/mysql/init.sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT';
 CREATE DATABASE IF NOT EXISTS $DB_NAME;
