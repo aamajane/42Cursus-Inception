@@ -13,11 +13,11 @@ volumes:
       type: none
       device: $HOME/data/wordpress
 
-  # portainer-volume:
-  #   driver_opts:
-  #     o: bind
-  #     type: none
-  #     device: $HOME/data/portainer
+  portainer-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/data/portainer
 
 networks:
     inception-network:
@@ -65,61 +65,61 @@ services:
       - wordpress-volume:/var/www/wordpress
     restart: always
 
-  # redis:
-  #   image: redis:1.0
-  #   container_name: redis
-  #   build: ./requirements/bonus/redis/
-  #   networks:
-  #     - inception-network
-  #   restart: always
+  redis:
+    image: redis:1.0
+    container_name: redis
+    build: ./requirements/bonus/redis/
+    networks:
+      - inception-network
+    restart: always
 
-  # ftp:
-  #   depends_on:
-  #     - wordpress
-  #   image: ftp:1.0
-  #   container_name: ftp
-  #   build: ./requirements/bonus/ftp/
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - "21:21"
-  #   networks:
-  #     - inception-network
-  #   volumes:
-  #     - wordpress-volume:/var/www/wordpress
-  #   restart: always
+  ftp:
+    depends_on:
+      - wordpress
+    image: ftp:1.0
+    container_name: ftp
+    build: ./requirements/bonus/ftp/
+    env_file:
+      - .env
+    ports:
+      - "21:21"
+    networks:
+      - inception-network
+    volumes:
+      - wordpress-volume:/var/www/wordpress
+    restart: always
 
-  # adminer:
-  #   depends_on:
-  #     - mariadb
-  #   image: adminer:1.0
-  #   container_name: adminer
-  #   build: ./requirements/bonus/adminer/
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     - inception-network
-  #   restart: always
+  adminer:
+    depends_on:
+      - mariadb
+    image: adminer:1.0
+    container_name: adminer
+    build: ./requirements/bonus/adminer/
+    ports:
+      - "8080:8080"
+    networks:
+      - inception-network
+    restart: always
 
-  # website:
-  #   image: website:1.0
-  #   container_name: website
-  #   build: ./requirements/bonus/website/
-  #   ports:
-  #     - "80:80"
-  #   networks:
-  #     - inception-network
-  #   restart: always
+  website:
+    image: website:1.0
+    container_name: website
+    build: ./requirements/bonus/website/
+    ports:
+      - "80:80"
+    networks:
+      - inception-network
+    restart: always
 
-  # portainer:
-  #   image: portainer:1.0
-  #   container_name: portainer
-  #   build: ./requirements/bonus/portainer/
-  #   ports:
-  #     - "9443:9443"
-  #   networks:
-  #     - inception-network
-  #   volumes:
-  #     - portainer-volume:/data
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   restart: always
+  portainer:
+    image: portainer:1.0
+    container_name: portainer
+    build: ./requirements/bonus/portainer/
+    ports:
+      - "9443:9443"
+    networks:
+      - inception-network
+    volumes:
+      - portainer-volume:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
