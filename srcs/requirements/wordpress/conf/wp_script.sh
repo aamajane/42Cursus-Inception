@@ -18,8 +18,8 @@ else
 					--role=author
 	wp plugin install redis-cache --activate
 	wp redis enable
-    wp config set WP_REDIS_HOST "redis"
-    wp config set WP_REDIS_PORT 6379
+	wp config set WP_REDIS_HOST "redis"
+	wp config set WP_REDIS_PORT 6379
 	wp config set WP_CACHE true
 fi
 
