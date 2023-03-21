@@ -1,4 +1,4 @@
-if -d "/var/lib/mysql/$DB_NAME"
+if [ -d "/var/lib/mysql/$DB_NAME" ]
 then
 	echo "Database is already installed"
 else
