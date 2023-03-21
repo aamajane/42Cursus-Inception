@@ -21,6 +21,7 @@ else
 	wp config set WP_REDIS_HOST "redis"
 	wp config set WP_REDIS_PORT 6379
 	wp config set WP_CACHE true
+	chown -R nobody:nobody /var/www/wordpress
 fi
 
 php-fpm8 -F
