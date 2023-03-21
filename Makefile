@@ -6,7 +6,7 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/03/21 22:25:19 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/21 22:26:24 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ clean:
 fclean: clean
 		docker container prune -f
 		docker image prune -af
-		sudo rm -rf ~/data
+		sudo rm -rf ${HOME}/data
 
 re:		fclean all
 
