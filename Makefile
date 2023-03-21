@@ -6,12 +6,12 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/03/20 21:45:08 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/21 22:17:32 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-		bash ./srcs/requirements/tools/init_script.sh
+		sudo bash ./srcs/requirements/tools/init_script.sh
 		docker-compose -f ./srcs/docker-compose.yml up --build
 
 clean:
