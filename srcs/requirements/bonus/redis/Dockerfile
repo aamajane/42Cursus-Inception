@@ -7,6 +7,4 @@ RUN apk update && \
     echo "maxmemory 20mb|g" >> /etc/redis.conf && \
     echo "maxmemory-policy allkeys-lru" >> /etc/redis.conf
 
-# CMD [ "redis-server" , "/etc/redis.conf" ]
-
 CMD [ "redis-server", "--protected-mode", "no" ]
