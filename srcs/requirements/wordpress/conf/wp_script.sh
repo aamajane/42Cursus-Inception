@@ -16,10 +16,6 @@ else
 	wp user create $WP_USER_NAME $WP_USER_EMAIL \
 					--user_pass=$WP_USER_PASS \
 					--role=author
-    wp config set FTP_HOST "ftp"
-    wp config set FTP_USER "$FTP_USER"
-    wp config set FTP_PASSWORD "$FTP_PASS"
-	wp config set FS_METHOD "direct"
 	wp plugin install redis-cache --activate
 	wp redis enable
     wp config set WP_REDIS_HOST "redis"
