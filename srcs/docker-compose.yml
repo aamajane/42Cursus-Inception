@@ -97,7 +97,6 @@ services:
     networks:
       - inception-network
     volumes:
-      - portainer-volume:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
@@ -113,12 +112,6 @@ volumes:
       o: bind
       type: none
       device: $HOME/data/wordpress
-
-  portainer-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: $HOME/data/portainer
 
 networks:
     inception-network:
