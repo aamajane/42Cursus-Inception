@@ -6,12 +6,12 @@
 #    By: aamajane <aamajane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:24 by aamajane          #+#    #+#              #
-#    Updated: 2023/03/21 22:17:32 by aamajane         ###   ########.fr        #
+#    Updated: 2023/03/21 22:25:19 by aamajane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-		sudo bash ./srcs/requirements/tools/init_script.sh
+		mkdir -p ${HOME}/data ${HOME}/data/mariadb ${HOME}/data/wordpress
 		docker-compose -f ./srcs/docker-compose.yml up --build
 
 clean:
