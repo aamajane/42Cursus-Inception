@@ -1,5 +1,3 @@
-sleep 3
-
 if [ -f "/var/www/wordpress/wp-config.php" ]
 then
 	echo "Wordpress is already installed"
@@ -20,9 +18,6 @@ else
 					--role=author
 	wp plugin install redis-cache --activate
 	wp redis enable
-    wp config set WP_CACHE true
-    wp config set WP_REDIS_HOST "redis"
-    wp config set WP_REDIS_PORT 6379
 fi
 
 php-fpm8 -F
