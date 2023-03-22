@@ -3,10 +3,10 @@ then
 	echo "Wordpress is already installed"
 else
 	sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
-	wp config create --dbname=$DB_NAME \
+	wp config create --dbhost=$DB_HOST \
+					--dbname=$DB_NAME \
 					--dbuser=$DB_USER \
-					--dbpass=$DB_PASS \
-					--dbhost=$DB_HOST
+					--dbpass=$DB_PASS
 	wp core install --url=$DOMAIN_NAME \
 					--title=$WP_SITE_TITLE \
 					--admin_user=$WP_ADMIN_NAME \
