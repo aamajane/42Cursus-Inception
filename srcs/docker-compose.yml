@@ -83,7 +83,7 @@ services:
     container_name: resume
     build: ./requirements/bonus/resume/
     ports:
-      - "9696:9696"
+      - "80:80"
     networks:
       - inception-network
     restart: always
