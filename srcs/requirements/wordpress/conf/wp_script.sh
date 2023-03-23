@@ -15,7 +15,7 @@ else
 					--skip-email
 	wp user create $WP_USER_NAME $WP_USER_EMAIL \
 					--user_pass=$WP_USER_PASS \
-					--role=author
+					--role=$WP_USER_ROLE
 	wp plugin install redis-cache --activate
 	wp redis enable
 	wp config set WP_REDIS_HOST "redis"
