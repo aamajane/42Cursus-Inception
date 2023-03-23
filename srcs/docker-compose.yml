@@ -1,22 +1,5 @@
 version: '3.5'
 
-volumes:
-  mariadb-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: $HOME/data/mariadb
-
-  wordpress-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: $HOME/data/wordpress
-
-networks:
-    inception-network:
-        driver: bridge
-
 services:
   nginx:
     depends_on:
@@ -116,3 +99,20 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
+
+volumes:
+  mariadb-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/data/mariadb
+
+  wordpress-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/data/wordpress
+
+networks:
+    inception-network:
+        driver: bridge
