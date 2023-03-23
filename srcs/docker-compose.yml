@@ -78,10 +78,10 @@ services:
       - inception-network
     restart: always
 
-  website:
-    image: website:1.0
-    container_name: website
-    build: ./requirements/bonus/website/
+  resume:
+    image: resume:1.0
+    container_name: resume
+    build: ./requirements/bonus/resume/
     ports:
       - "80:80"
     networks:
