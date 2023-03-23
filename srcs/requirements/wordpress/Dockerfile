@@ -9,7 +9,7 @@ RUN apk update && \
 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x wp-cli.phar && \
 	mv wp-cli.phar /usr/local/bin/wp && \
-	wp core download
+	wp core download --version=6.1.1
 
 COPY ./conf/wp_script.sh .
 
