@@ -15,10 +15,14 @@ CMD [ "nginx", "-g", "daemon off;" ]
 
 # Update the package list for the base image using the "apk update" command.
 # This is to ensure that we have the latest version of packages and their dependencies.
+
 # Upgrade the installed packages using the "apk upgrade" command.
 # This ensures that we have the latest security patches and bug fixes.
+
 # Install the "nginx" and "openssl" packages using the "apk add" command.
-# "nginx" is a popular open-source web server, and "openssl" is a widely used toolkit implementing the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols.
+# "nginx" is a popular open-source web server.
+# "openssl" is a widely used toolkit implementing the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols.
+
 # Generate an SSL certificate and key using the OpenSSL "req" command and store it in "/etc/ssl".
 # The "req" command is used to issue and sign digital certificates.
 # The options used in this command are:
