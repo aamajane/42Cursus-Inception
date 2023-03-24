@@ -2,7 +2,7 @@ FROM alpine:3.16
 
 RUN apk update && \
 	apk upgrade && \
-    apk add --no-cache vsftpd
+    apk add vsftpd
 
 COPY ./conf/ftp_script.sh .
 

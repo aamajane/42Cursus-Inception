@@ -2,7 +2,7 @@ FROM alpine:3.16
 
 RUN apk update && \
 	apk upgrade && \
-	apk add --no-cache php8 && \
+	apk add php8 && \
 	mkdir -p /var/www/html
 
 COPY ./app/index.html /var/www/html
