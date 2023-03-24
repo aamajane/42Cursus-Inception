@@ -5,7 +5,7 @@ RUN apk update && \
 	apk add mariadb mariadb-client && \
 	mkdir -p /var/run/mysqld && \
 	chmod 777 /var/run/mysqld && \
-	mariadb-install-db --user=mysql --datadir=/var/lib/mysql
+	mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
 COPY ./conf/db_script.sh .
 
