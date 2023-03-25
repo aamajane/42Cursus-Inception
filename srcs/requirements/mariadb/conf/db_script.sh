@@ -1,6 +1,6 @@
-if [ -d "/var/lib/mysql/$DB_NAME" ]
+if [ -f "/etc/mysql/init.sql" ]
 then
-	echo "Database is already installed"
+	echo "Database is already initialized"
 else
 	cat << EOF > /etc/mysql/init.sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT';
