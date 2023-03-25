@@ -1,7 +1,4 @@
-if [ -f "/var/www/wordpress/wp-config.php" ]
-then
-	echo "Wordpress is already installed"
-else
+if [ ! -f /var/www/wordpress/wp-config.php ]; then
 	sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 	wp config create --dbhost=$DB_HOST \
 					 --dbname=$DB_NAME \
