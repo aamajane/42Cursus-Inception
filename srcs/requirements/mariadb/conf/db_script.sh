@@ -8,4 +8,4 @@ FLUSH PRIVILEGES;
 EOF
 fi
 
-mysqld --user=mysql --init-file=/etc/mysql/init.sql --skip-networking=0
+mysqld_safe --user=mysql --init-file=/etc/mysql/init.sql --skip-networking=0
