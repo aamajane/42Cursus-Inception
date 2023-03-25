@@ -21,4 +21,4 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
 	chown -R nobody:nobody /var/www/wordpress
 fi
 
-php-fpm8 -F
+php-fpm8 --nodaemonize
