@@ -7,8 +7,8 @@ else
 					 --dbname=$DB_NAME \
 					 --dbuser=$DB_USER \
 					 --dbpass=$DB_PASS
-	wp core install --url=$DOMAIN_NAME \
-					--title=$WP_SITE_TITLE \
+	wp core install --url=$WP_URL \
+					--title=$WP_TITLE \
 					--admin_user=$WP_ADMIN_NAME \
 					--admin_password=$WP_ADMIN_PASS \
 					--admin_email=$WP_ADMIN_EMAIL \
