@@ -16,7 +16,7 @@ if ! wp core is-installed; then
 					--skip-email
 fi
 
-if ! wp user get $WP_USER_NAME >/dev/null 2>&1; then
+if ! wp user get $WP_USER_NAME > /dev/null 2>&1; then
 	wp user create $WP_USER_NAME $WP_USER_EMAIL \
 					--user_pass=$WP_USER_PASS \
 					--role=$WP_USER_ROLE
