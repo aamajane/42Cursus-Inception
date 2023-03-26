@@ -51,8 +51,6 @@ services:
     restart: always
 
   ftp:
-    depends_on:
-      - wordpress
     image: ftp:1.0
     container_name: ftp
     build: ./requirements/bonus/ftp/
@@ -67,8 +65,6 @@ services:
     restart: always
 
   adminer:
-    depends_on:
-      - mariadb
     image: adminer:1.0
     container_name: adminer
     build: ./requirements/bonus/adminer/
