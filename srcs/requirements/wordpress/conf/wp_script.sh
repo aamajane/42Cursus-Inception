@@ -1,6 +1,6 @@
 sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 
-if [ ! -f /var/www/wordpress/wp-config.php ]; then
+if [ ! -f wp-config.php ]; then
 	wp config create --dbhost=$DB_HOST \
 					 --dbname=$DB_NAME \
 					 --dbuser=$DB_USER \
