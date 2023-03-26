@@ -1,4 +1,4 @@
-if [ ! -f /etc/mysql/init.sql ]; then
+if [ ! -f /etc/mysql/init.sql > /dev/null 2>&1 ]; then
 	cat << EOF > /etc/mysql/init.sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT';
 CREATE DATABASE IF NOT EXISTS $DB_NAME;
