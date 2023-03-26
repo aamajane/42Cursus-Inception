@@ -1,4 +1,4 @@
-if [ ! -f /etc/mysql/init.sql > /dev/null 2>&1 ]; then
+if [ ! -f /etc/mysql/init.sql &>/dev/null ]; then
 	cat << EOF > /etc/mysql/init.sql
 CREATE DATABASE IF NOT EXISTS $DB_NAME;
 CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS';
