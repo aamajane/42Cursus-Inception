@@ -1,4 +1,4 @@
-if ! id "$FTP_USER" >/dev/null 2>&1; then
+if ! id "$FTP_USER" > /dev/null 2>&1; then
 	adduser -h /var/www/wordpress -D $FTP_USER
 	echo "$FTP_USER:$FTP_PASS" | chpasswd
 	cat << EOF >> /etc/vsftpd/vsftpd.conf
