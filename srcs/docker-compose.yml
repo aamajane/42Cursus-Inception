@@ -2,16 +2,19 @@ version: '3.5'
 
 networks:
     inception-network:
-        driver: bridge
+      name: inception-network
+      driver: bridge
 
 volumes:
   mariadb-volume:
+    name: mariadb-volume
     driver_opts:
       o: bind
       type: none
       device: $HOME/data/mariadb
 
   wordpress-volume:
+    name: wordpress-volume
     driver_opts:
       o: bind
       type: none
