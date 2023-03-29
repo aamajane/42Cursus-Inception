@@ -9,7 +9,7 @@ RUN apk update && \
 	apk add php8 && \
 	mkdir -p /var/www/html
 
-# Copy the index.html file from the app directory to the container's /var/www/html directory
+# Copy the index.html file to the container's appropriate location
 COPY ./app/index.html /var/www/html
 
 # Set the command to start the PHP built-in web server
