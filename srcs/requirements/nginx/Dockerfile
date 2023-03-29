@@ -1,5 +1,3 @@
-# Dockerfile for creating an Alpine-based Nginx server with SSL
-
 # Use Alpine 3.16 as the base image
 FROM alpine:3.16
 

@@ -1,5 +1,3 @@
-# This Dockerfile is based on Alpine Linux and installs PHP-FPM, MariaDB client, and WordPress with WP-CLI
-
 # Use Alpine 3.16 as the base image
 FROM alpine:3.16
 

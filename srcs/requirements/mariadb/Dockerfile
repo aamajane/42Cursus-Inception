@@ -1,5 +1,3 @@
-# Dockerfile for creating a MariaDB container based on Alpine 3.16
-
 # Use the Alpine 3.16 image as the base image
 FROM alpine:3.16
 
