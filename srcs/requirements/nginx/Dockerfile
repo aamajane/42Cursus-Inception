@@ -1,7 +1,8 @@
-# Use Alpine 3.16 as the base image
+# Use the Alpine 3.16 image as the base image
 FROM alpine:3.16
 
-# Update and upgrade the package repositories, then install Nginx and OpenSSL
+# Update the package repositories and upgrade existing packages
+# install Nginx and OpenSSL packages
 # Generate a self-signed SSL certificate for the server using OpenSSL
 # The certificate will be valid for 365 days and have the common name "aamajane.42.fr"
 RUN apk update && \

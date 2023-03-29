@@ -4,7 +4,8 @@ FROM alpine:3.16
 # Set the working directory to /etc/adminer
 WORKDIR /etc/adminer
 
-# Update the package repository and install required packages
+# Update the package repositories and upgrade existing packages
+# Install PHP 8 pakage and required dependencies
 # Download and rename the Adminer PHP script to index.php
 RUN apk update && \
 	apk upgrade && \

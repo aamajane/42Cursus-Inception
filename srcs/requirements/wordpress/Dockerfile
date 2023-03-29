@@ -1,10 +1,11 @@
-# Use Alpine 3.16 as the base image
+# Use the Alpine 3.16 image as the base image
 FROM alpine:3.16
 
 # Set the working directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
 
-# Update packages and install required dependencies
+# Update the package repositories and upgrade existing packages
+# Install PHP 8 pakage and required dependencies
 # Download and install WP-CLI
 # Download WordPress core files
 RUN apk update && \
