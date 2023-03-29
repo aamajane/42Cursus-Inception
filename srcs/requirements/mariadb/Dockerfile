@@ -3,7 +3,7 @@
 # Use the Alpine 3.16 image as the base image
 FROM alpine:3.16
 
-# Update the package repository and upgrade packages, and then install MariaDB and MariaDB client
+# Update the package repository and upgrade packages, then install MariaDB and MariaDB client
 # Create a directory for the MariaDB daemon and make it writable
 # Initialize the MariaDB data directory with mysql_install_db script
 RUN apk update && \
