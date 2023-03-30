@@ -5,7 +5,7 @@ FROM alpine:3.16
 WORKDIR /var/www/wordpress
 
 # Update the package repositories and upgrade existing packages
-# Install PHP 8 pakage and required dependencies
+# Install PHP 8 pakage and the required dependencies
 # Download and install WP-CLI
 # Download WordPress core files
 RUN apk update && \
