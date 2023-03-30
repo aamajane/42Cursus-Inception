@@ -4,7 +4,7 @@ FROM alpine:3.16
 # Update the package repositories and upgrade existing packages
 # install Nginx and OpenSSL packages
 # Generate a self-signed SSL certificate for the server using OpenSSL
-# The certificate will be valid for 365 days and have the common name "aamajane.42.fr"
+# The certificate will be valid for 365 days
 RUN apk update && \
 	apk upgrade && \
 	apk add nginx openssl && \
