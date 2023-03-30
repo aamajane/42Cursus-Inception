@@ -1,5 +1,5 @@
 # Update PHP-FPM configuration to listen on port 9000
-sed -i "s|listen = 127.0.0.1*|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
+sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 
 # Create wp-config.php file if it doesn't exist yet
 if [ ! -f wp-config.php &>/dev/null ]; then
