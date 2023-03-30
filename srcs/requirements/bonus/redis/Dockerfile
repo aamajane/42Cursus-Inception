@@ -3,7 +3,7 @@ FROM alpine:3.16
 
 # Update the package repositories and upgrade existing packages
 # Install the Redis package
-# Uncomment the following line to allow Redis to accept connections from any IP address
+# Uncomment the bind line to allow Redis to accept connections from any IP address
 # Set the maximum memory that Redis can use to 20MB
 # Set the policy to use when Redis runs out of memory to delete the least recently used keys
 RUN apk update && \
