@@ -12,7 +12,7 @@ RUN apk update && \
 	chmod 777 /var/run/mysqld && \
 	mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
-# Copy the database script intto the image
+# Copy the database script into the image
 COPY ./conf/db_script.sh .
 
 # Set the command to be run when the container starts
