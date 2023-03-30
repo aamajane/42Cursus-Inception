@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Check if the init.sql file exists
 if [ ! -f /etc/mysql/init.sql &>/dev/null ]; then
 	# Create the init.sql file with the necessary database and user configurations

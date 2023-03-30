@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Check if the FTP user already exists
 if ! id "$FTP_USER" &>/dev/null; then
 	# Add a new FTP user with a home directory of /var/www/wordpress

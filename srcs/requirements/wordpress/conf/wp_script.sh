@@ -1,5 +1,3 @@
-##!/bin/sh
-
 # Update PHP-FPM configuration to listen on port 9000
 sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" /etc/php8/php-fpm.d/www.conf
 
