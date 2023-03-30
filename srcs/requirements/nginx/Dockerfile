@@ -11,7 +11,7 @@ RUN apk update && \
 	openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/private/aamajane.42.fr.key \
 	-x509 -days 365 -subj "/CN=aamajane.42.fr" -out /etc/ssl/certs/aamajane.42.fr.crt
 
-# Copy the default Nginx configuration file to the container's appropriate location
+# Copy the default Nginx configuration file into the image's appropriate location
 COPY ./conf/default.conf /etc/nginx/http.d
 
 # Start the Nginx server in the foreground, rather than as a daemon

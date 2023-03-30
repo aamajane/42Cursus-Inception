@@ -7,7 +7,7 @@ RUN apk update && \
 	apk upgrade && \
     apk add vsftpd
 
-# Copy the FTP server configuration script to the container
+# Copy the FTP server configuration script into the image
 COPY ./conf/ftp_script.sh .
 
 # Set the default command for the container to run the FTP server script

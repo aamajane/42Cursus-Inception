@@ -16,7 +16,7 @@ RUN apk update && \
 	mv wp-cli.phar /usr/local/bin/wp && \
 	wp core download --version=6.2
 
-# Copy the wp_script.sh file to the container
+# Copy the wp_script.sh file intto the image
 COPY ./conf/wp_script.sh .
 
 # Set the default command to run the wp_script.sh script
