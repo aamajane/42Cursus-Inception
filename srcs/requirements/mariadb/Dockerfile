@@ -4,7 +4,7 @@ FROM alpine:3.16
 # Update the package repositories and upgrade existing packages
 # Install the MariaDB and MariaDB client packages
 # Create a directory for the MariaDB daemon and make it writable
-# Initialize the MariaDB data directory with mysql_install_db script
+# Initialize the MariaDB data directory with mysql_install_db
 RUN apk update && \
 	apk upgrade && \
 	apk add mariadb mariadb-client && \
